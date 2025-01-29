@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPattern": "/04455230/json"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "04455230.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
