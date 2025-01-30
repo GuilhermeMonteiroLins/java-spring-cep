@@ -12,7 +12,7 @@ import br.com.spring.cep.model.entity.LoggerCepEntity;
 import br.com.spring.cep.repository.LoggerCepRepository;
 import br.com.spring.cep.service.CepService;
 import br.com.spring.cep.util.CepUtil;
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

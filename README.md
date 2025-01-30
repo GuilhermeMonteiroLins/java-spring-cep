@@ -1,46 +1,48 @@
-# CEP Search Project Integrating WireMock, MySQL, and Java API
+# Projeto de busca CEP Integrando com WireMock, MySQL e API Java
 
-This project aims to simulate a ZIP code lookup service using WireMock inside a Docker container. The MySQL database is also in a Docker container and is used by the Java API to register the performed searches along with the timestamp of the request.
+Este projeto tem como objetivo simular um serviço de consulta de CEPs utilizando o WireMock, dentro de um container Docker. O banco de dados MySQL também está em um container Docker e é utilizado pela API Java para registrar as consultas realizadas, juntamente com o horário da pesquisa.
 
-## Solution Overview
+## Desenho de solução
 
-## Project Structure
+<img src="./files/documentation/solution_overview.png" alt="Solution Overview" align="center">
 
-- **WireMock**: Mock service for simulating ZIP code lookups.
-- **MySQL**: Database that stores the performed searches.
-- **Java API**: API that interacts with the WireMock service, executes searches, and registers the data in the database.
+## Estrutura do Projeto
 
-## Requirements
+- **WireMock**: Serviço mockado para simulação de consultas de CEP.
+- **MySQL**: Banco de dados que registra as consultas realizadas.
+- **API Java**: API que interage com o serviço WireMock, executa as pesquisas e registra os dados no banco de dados.
 
-- Docker and Docker Compose installed on your system.
-- Java 8 or later.
-- Maven for managing Java dependencies (if applicable).
+## Requisitos
 
-## How to Run the Project
+- Docker e Docker Compose instalados no seu sistema.
+- Java 11.
+- Maven para gerenciar dependências Java (se aplicável).
 
-### Step 1: Start the Docker Containers
+## Como Rodar o Projeto
 
-To start the containers with WireMock and MySQL, run the following command in the directory where the `docker-compose.yml` file is located:
+### Passo 1: Subindo os containers Docker
 
-> docker-compose up -d  
+Para iniciar os containers com o WireMock e o MySQL, execute o seguinte comando no diretório onde está o arquivo docker-compose.yml:
 
-This command will start two containers:
+> docker-compose up -d
 
-- **WireMock**: A mock server for simulating ZIP code lookups.  
-- **MySQL**: A MySQL database to store searches performed by the API.  
+Esse comando vai subir dois containers:
 
-### Step 2: Verify if the Containers are Running
+WireMock: Um servidor mockado para simulação de consultas de CEP.
+MySQL: Banco de dados MySQL para registrar as consultas feitas pela API.
 
-After executing the command above, you can check if the containers are running correctly with:
+### Passo 2: Verificar se os containers estão rodando
 
-> docker ps  
+Após executar o comando acima, você pode verificar se os containers estão funcionando corretamente com:
 
-The `wiremock` and `mysql` containers should appear in the list.
+> docker ps
 
-### Step 3: Access MySQL in the Container
+Os containers wiremock e mysql devem aparecer na lista.
 
-To access MySQL inside the container, run the following command:
+### Passo 3: Acessar o MySQL no Container
 
-> docker exec -it <container_id> mysql -u root -p  
+Para acessar o MySQL no container, execute o seguinte comando:
 
-Replace `<container_id>` with the ID of the MySQL container, which you can obtain using **docker ps**.
+> docker exec -it <container_id> mysql -u root -p
+
+Substitua <container_id> pelo ID do container do MySQL, que você pode obter com **docker ps**.

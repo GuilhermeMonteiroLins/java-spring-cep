@@ -11,19 +11,18 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @ControllerAdvice
-public class ApiRestExecptionHandler extends ResponseEntityExceptionHandler {
+public class ApiRestExceptionHandler extends ResponseEntityExceptionHandler {
 
 	/**
-	 * Generic RuntimeException formated JSON.
+	 * Generic Exception formated JSON.
 	 *
 	 * @param exception
 	 * @return JSON formated @ErrorResponseDTO
 	 */
 	@ExceptionHandler(Exception.class)
 	private ResponseEntity<ApiResponseDTO> runtimeErrorHandler(Exception exception) {
-		log.atError().setCause(exception).log(
-				"[INTERNAL SERVER ERROR] There was an internal server error --- [EXCEPTION] : {}",
-				exception.getMessage());
+		log.error("[INTERNAL SERVER ERROR] There was an internal server error --- [EXCEPTION] : {}", 
+				exception.getMessage(), exception);
 		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ApiResponseDTO(
 				HttpStatus.INTERNAL_SERVER_ERROR, "There was an error performing the action, please try again!"));
 	}

@@ -19,9 +19,9 @@ public class CepController {
 	private CepService cepService;
 
 	/**
-	 * List all configurations static system
+	 * This method is responsible for carrying out the CEP search
 	 *
-	 * @return HTTP response list All configurations
+	 * @return HTTP response CEP information
 	 */
 	@GetMapping(value = "/{cep}", produces = "application/json")
 	public ResponseEntity<ResponseClientDTO> searchCep(@PathVariable(value = "cep") String cep) {
